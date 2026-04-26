@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct CalculatorApp: App {
+struct CalcKitApp: App {
     @State private var historyStore = HistoryStore()
 
     var body: some Scene {

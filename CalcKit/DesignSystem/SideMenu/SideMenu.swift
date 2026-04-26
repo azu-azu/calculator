@@ -31,7 +31,7 @@ struct SideMenu: View {
                                         .font(.title)
 
                                     VStack(alignment: .leading, spacing: 4) {
-                                        Text("Calculator")
+                                        Text("CalcKit")
                                             .dynamicFont(
                                                 size: DesignTokens.SideMenuTypography.headerTitleSize,
                                                 weight: DesignTokens.SideMenuTypography.headerTitleWeight
