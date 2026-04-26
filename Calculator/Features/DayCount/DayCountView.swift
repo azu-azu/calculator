@@ -25,31 +25,35 @@ struct DayCountView: View {
                     .foregroundColor(DesignTokens.CommonTextColors.primary)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
-                // Start date
-                VStack(alignment: .leading, spacing: 6) {
-                    Text("スタート日")
-                        .dynamicFont(size: 14, weight: .medium)
-                        .foregroundColor(DesignTokens.CommonTextColors.secondary)
-                    DatePicker("", selection: $startDate, displayedComponents: .date)
-                        .datePickerStyle(.graphical)
-                        .tint(AppTheme.accent)
-                }
-                .cardStyle()
+                // Date pickers
+                VStack(spacing: DesignTokens.InputLayout.itemSpacing) {
+                    HStack {
+                        Text("スタート日")
+                            .dynamicFont(size: 14, weight: .medium)
+                            .foregroundColor(DesignTokens.CommonTextColors.secondary)
+                        Spacer()
+                        DatePicker("", selection: $startDate, displayedComponents: .date)
+                            .labelsHidden()
+                            .tint(AppTheme.accent)
+                    }
 
-                // End date
-                VStack(alignment: .leading, spacing: 6) {
-                    Text("エンド日")
-                        .dynamicFont(size: 14, weight: .medium)
-                        .foregroundColor(DesignTokens.CommonTextColors.secondary)
-                    DatePicker("", selection: $endDate, displayedComponents: .date)
-                        .datePickerStyle(.graphical)
-                        .tint(AppTheme.accent)
+                    Divider().background(DesignTokens.CommonBackgroundColors.cardBorderSubtle)
+
+                    HStack {
+                        Text("エンド日")
+                            .dynamicFont(size: 14, weight: .medium)
+                            .foregroundColor(DesignTokens.CommonTextColors.secondary)
+                        Spacer()
+                        DatePicker("", selection: $endDate, displayedComponents: .date)
+                            .labelsHidden()
+                            .tint(AppTheme.accent)
+                    }
                 }
                 .cardStyle()
 
                 // Toggle
                 HStack {
-                    Text("営業日のみ")
+                    Text("平日のみ")
                         .dynamicFont(size: 16, weight: .regular)
                         .foregroundColor(DesignTokens.CommonTextColors.primary)
                     Spacer()
@@ -67,7 +71,7 @@ struct DayCountView: View {
                             design: .monospaced
                         )
                         .foregroundColor(AppTheme.accent)
-                    Text(businessDaysOnly ? "営業日" : "日間")
+                    Text(businessDaysOnly ? "平日" : "日間")
                         .dynamicFont(size: 16, weight: .regular)
                         .foregroundColor(DesignTokens.CommonTextColors.tertiary)
                 }

@@ -37,6 +37,13 @@ struct ContentView: View {
     @State private var selectedPage: Page = .home
     @State private var isMenuPresented = false
 
+    private func openMenu() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        withAnimation(.easeInOut(duration: 0.3)) {
+            isMenuPresented = true
+        }
+    }
+
     var body: some View {
         ZStack {
             AppTheme.backgroundGradient
@@ -52,9 +59,7 @@ struct ContentView: View {
                     Spacer()
                     HStack {
                         SideMenuTriggerButton {
-                            withAnimation(.easeInOut(duration: 0.3)) {
-                                isMenuPresented = true
-                            }
+                            openMenu()
                         }
                         Spacer()
                     }
@@ -89,9 +94,7 @@ struct ContentView: View {
                 if horizontalAmount > swipeThreshold && !isMenuPresented {
                     // 右スワイプ: 左端20px以内からのみメニューを開く
                     if value.startLocation.x <= 20 {
-                        withAnimation(.easeInOut(duration: 0.3)) {
-                            isMenuPresented = true
-                        }
+                        openMenu()
                     }
                 } else if horizontalAmount < -swipeThreshold && isMenuPresented {
                     // 左スワイプ: メニューを閉じる
@@ -106,11 +109,7 @@ struct ContentView: View {
     private var currentPageView: some View {
         switch selectedPage {
         case .home:
-            HomeCalculatorView(onMenu: {
-                withAnimation(.easeInOut(duration: 0.3)) {
-                    isMenuPresented = true
-                }
-            })
+            HomeCalculatorView(onMenu: openMenu)
         case .warikan:
             WarikanView()
         case .dayCount:

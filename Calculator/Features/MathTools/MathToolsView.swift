@@ -3,6 +3,7 @@ import SwiftUI
 struct MathToolsView: View {
     @State private var sqrtInput = ""
     @State private var showFormulas = false
+    @FocusState private var isFocused: Bool
 
     private var sqrtResult: String {
         guard let value = Double(sqrtInput), value >= 0 else {
@@ -40,6 +41,7 @@ struct MathToolsView: View {
 
                         TextField("数値を入力", text: $sqrtInput)
                             .keyboardType(.decimalPad)
+                            .focused($isFocused)
                             .dynamicFont(size: 20, weight: .medium)
                             .foregroundColor(DesignTokens.CommonTextColors.primary)
                             .padding(12)
@@ -88,6 +90,22 @@ struct MathToolsView: View {
         }
         .sheet(isPresented: $showFormulas) {
             FormulaSheetView()
+        }
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button {
+                    isFocused = false
+                } label: {
+                    Image(systemName: "keyboard.chevron.compact.down")
+                }
+                .foregroundColor(AppTheme.accent)
+            }
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                isFocused = true
+            }
         }
     }
 }

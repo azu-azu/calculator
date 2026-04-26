@@ -44,4 +44,9 @@ struct WarikanResult {
     var specialTotal: Int {
         specialPayments.reduce(0) { $0 + $1.amount * $1.count }
     }
+
+    /// 実際に徴収される合計額（端数で入力値と異なる場合がある）
+    var actualTotal: Int {
+        perPerson * remainingPeople + specialTotal
+    }
 }

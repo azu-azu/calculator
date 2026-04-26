@@ -1,8 +1,10 @@
 import SwiftUI
 
-struct SpecialPaymentRow: View {
+struct SpecialPaymentRow<F: Hashable>: View {
     @Binding var payment: SpecialPayment
-    let onDelete: () -> Void
+    var isFocused: FocusState<F?>.Binding
+    let focusValue: F
+    let onClear: () -> Void
 
     var body: some View {
         HStack(spacing: 12) {
@@ -11,8 +13,9 @@ struct SpecialPaymentRow: View {
                 Text("金額")
                     .dynamicFont(size: 12, weight: .regular)
                     .foregroundColor(DesignTokens.CommonTextColors.quaternary)
-                TextField("0", value: $payment.amount, format: .number)
+                TextField("0", text: $payment.amountText)
                     .keyboardType(.numberPad)
+                    .focused(isFocused, equals: focusValue)
                     .dynamicFont(size: 16, weight: .medium)
                     .foregroundColor(DesignTokens.CommonTextColors.primary)
                     .padding(.horizontal, 12)
@@ -44,10 +47,10 @@ struct SpecialPaymentRow: View {
             }
             .frame(width: 100)
 
-            // Delete
-            Button(action: onDelete) {
+            // Clear
+            Button(action: onClear) {
                 Image(systemName: "xmark.circle.fill")
-                    .foregroundColor(DesignTokens.StatusColors.danger.opacity(0.7))
+                    .foregroundColor(DesignTokens.CommonTextColors.quaternary)
                     .font(.system(size: 20))
             }
         }
