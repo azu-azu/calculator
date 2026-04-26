@@ -27,7 +27,7 @@ struct SideMenu: View {
                             // Header
                             VStack(alignment: .leading, spacing: 12) {
                                 HStack {
-                                    Text("🧮")
+                                    Text("⚡")
                                         .font(.title)
 
                                     VStack(alignment: .leading, spacing: 4) {
