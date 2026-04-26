@@ -14,7 +14,7 @@ struct HistoryView: View {
                 .foregroundColor(DesignTokens.CommonTextColors.primary)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, DesignTokens.InputLayout.screenHorizontal)
-                .padding(.top, 60)
+                .padding(.top, 16)
                 .padding(.bottom, 16)
 
             if historyStore.items.isEmpty {

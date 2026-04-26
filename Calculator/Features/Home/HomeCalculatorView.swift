@@ -7,35 +7,14 @@ struct HomeCalculatorView: View {
     var onMenu: () -> Void = {}
 
     var body: some View {
-        VStack(spacing: 0) {
-            Spacer()
+        GeometryReader { geo in
+            let isLandscape = geo.size.width > geo.size.height
 
-            // Display
-            CalcDisplay(
-                expression: engine.expression,
-                intermediateSteps: engine.intermediateSteps,
-                displayValue: engine.displayValue
-            )
-
-            // Keypad
-            CalcKeypad(
-                onDigit: { engine.inputDigit($0) },
-                onOperator: { engine.inputOperator($0) },
-                onEquals: { engine.evaluate() },
-                onClear: { engine.clear() },
-                onBackspace: { engine.backspace() },
-                onDecimal: { engine.inputDecimal() },
-                onPercent: { engine.inputPercent() },
-                onOpenParen: { engine.inputOpenParen() },
-                onCloseParen: { engine.inputCloseParen() },
-                onSave: { showSaveDialog = true },
-                onMenu: onMenu
-            )
-            // 6 rows × buttonHeight + toolbar + spacing
-            .frame(height: DesignTokens.CalcLayout.buttonHeight * 6
-                + DesignTokens.CalcLayout.toolbarHeight
-                + DesignTokens.CalcLayout.buttonSpacing * 6)
-            .padding(.bottom, 8)
+            if isLandscape {
+                landscapeLayout
+            } else {
+                portraitLayout
+            }
         }
         .saveDialog(isPresented: $showSaveDialog) { name in
             let item = HistoryItem(
@@ -45,5 +24,60 @@ struct HomeCalculatorView: View {
             )
             historyStore.save(item: item)
         }
+    }
+
+    private var portraitLayout: some View {
+        VStack(spacing: 0) {
+            Spacer()
+
+            CalcDisplay(
+                expression: engine.expression,
+                intermediateSteps: engine.intermediateSteps,
+                displayValue: engine.displayValue
+            )
+
+            keypad
+                .frame(height: DesignTokens.CalcLayout.buttonHeight * 6
+                    + DesignTokens.CalcLayout.toolbarHeight
+                    + DesignTokens.CalcLayout.buttonSpacing * 6)
+                .padding(.bottom, 8)
+        }
+    }
+
+    private var landscapeLayout: some View {
+        HStack(spacing: 0) {
+            // Left: Display
+            VStack {
+                Spacer()
+                CalcDisplay(
+                    expression: engine.expression,
+                    intermediateSteps: engine.intermediateSteps,
+                    displayValue: engine.displayValue
+                )
+                Spacer()
+            }
+            .frame(maxWidth: .infinity)
+
+            // Right: Keypad
+            keypad
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 8)
+        }
+    }
+
+    private var keypad: some View {
+        CalcKeypad(
+            onDigit: { engine.inputDigit($0) },
+            onOperator: { engine.inputOperator($0) },
+            onEquals: { engine.evaluate() },
+            onClear: { engine.clear() },
+            onBackspace: { engine.backspace() },
+            onDecimal: { engine.inputDecimal() },
+            onPercent: { engine.inputPercent() },
+            onOpenParen: { engine.inputOpenParen() },
+            onCloseParen: { engine.inputCloseParen() },
+            onSave: { showSaveDialog = true },
+            onMenu: onMenu
+        )
     }
 }

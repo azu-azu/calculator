@@ -256,6 +256,8 @@ struct GoalCalcView: View {
                                 .foregroundColor(DesignTokens.CommonTextColors.secondary)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         }
+                        resultRow(label: weekdaysOnly ? "1時間 (8h/日)" : "1時間", value: dailyRate / (weekdaysOnly ? 8 : 24))
+                        Divider().background(DesignTokens.CommonBackgroundColors.cardBorderSubtle)
                         resultRow(label: "1日", value: dailyRate)
                         Divider().background(DesignTokens.CommonBackgroundColors.cardBorderSubtle)
                         resultRow(label: weekdaysOnly ? "1週 (5日)" : "1週間", value: dailyRate * daysFor(.week))
@@ -270,7 +272,7 @@ struct GoalCalcView: View {
                 Spacer(minLength: 40)
             }
             .padding(.horizontal, DesignTokens.InputLayout.screenHorizontal)
-            .padding(.top, 60)
+            .padding(.top, 16)
         }
         .toolbar {
             ToolbarItemGroup(placement: .keyboard) {

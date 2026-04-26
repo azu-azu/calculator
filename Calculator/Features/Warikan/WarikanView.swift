@@ -152,7 +152,7 @@ struct WarikanView: View {
                 Spacer(minLength: 40)
             }
             .padding(.horizontal, DesignTokens.InputLayout.screenHorizontal)
-            .padding(.top, 60)
+            .padding(.top, 16)
         }
         .safeAreaInset(edge: .bottom, spacing: 0) {
             if focusedField != nil {

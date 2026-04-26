@@ -25,18 +25,7 @@ struct CalcKeypad: View {
                 HStack(spacing: spacing) {
                     CalcButtonView("(", style: .function) { onOpenParen() }
                     CalcButtonView(")", style: .function) { onCloseParen() }
-                    Button { onBackspace() } label: {
-                        Text("←")
-                            .dynamicFont(
-                                size: DesignTokens.CalcTypography.buttonSize,
-                                weight: DesignTokens.CalcTypography.buttonWeight
-                            )
-                            .foregroundColor(DesignTokens.CommonTextColors.primary)
-                            .frame(width: buttonWidth * 2 + spacing, height: DesignTokens.CalcLayout.buttonHeight)
-                            .background(DesignTokens.CalcColors.functionButton)
-                            .cornerRadius(DesignTokens.CalcLayout.buttonCornerRadius)
-                    }
-                    .buttonStyle(.plain)
+                    wideButton("←", width: buttonWidth * 2 + spacing, style: .function) { onBackspace() }
                 }
 
                 // Row 2: 7, 8, 9, ÷
@@ -65,19 +54,7 @@ struct CalcKeypad: View {
 
                 // Row 5: 0 (wide), ., +
                 HStack(spacing: spacing) {
-                    Button { onDigit("0") } label: {
-                        Text("0")
-                            .dynamicFont(
-                                size: DesignTokens.CalcTypography.buttonSize,
-                                weight: DesignTokens.CalcTypography.buttonWeight
-                            )
-                            .foregroundColor(DesignTokens.CommonTextColors.primary)
-                            .frame(width: buttonWidth * 2 + spacing, height: DesignTokens.CalcLayout.buttonHeight)
-                            .background(DesignTokens.CalcColors.numberButton)
-                            .cornerRadius(DesignTokens.CalcLayout.buttonCornerRadius)
-                    }
-                    .buttonStyle(.plain)
-
+                    wideButton("0", width: buttonWidth * 2 + spacing, style: .number) { onDigit("0") }
                     CalcButtonView(".") { onDecimal() }
                     CalcButtonView("+", style: .operatorStyle) { onOperator(.add) }
                 }
@@ -86,18 +63,7 @@ struct CalcKeypad: View {
                 HStack(spacing: spacing) {
                     CalcButtonView("AC", style: .function) { onClear() }
                     CalcButtonView("%", style: .function) { onPercent() }
-                    Button { onEquals() } label: {
-                        Text("=")
-                            .dynamicFont(
-                                size: DesignTokens.CalcTypography.buttonSize,
-                                weight: DesignTokens.CalcTypography.buttonWeight
-                            )
-                            .foregroundColor(.white)
-                            .frame(width: buttonWidth * 2 + spacing, height: DesignTokens.CalcLayout.buttonHeight)
-                            .background(DesignTokens.CalcColors.equalsButton)
-                            .cornerRadius(DesignTokens.CalcLayout.buttonCornerRadius)
-                    }
-                    .buttonStyle(.plain)
+                    wideButton("=", width: buttonWidth * 2 + spacing, style: .equals) { onEquals() }
                 }
 
                 // Toolbar: ☰ (左) ... Save (右)
@@ -129,8 +95,25 @@ struct CalcKeypad: View {
                     }
                     .buttonStyle(.plain)
                 }
+                .fixedSize(horizontal: false, vertical: true)
             }
             .padding(.horizontal, 12)
         }
+    }
+
+    private func wideButton(_ label: String, width: CGFloat, style: CalcButtonStyle, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            Text(label)
+                .dynamicFont(
+                    size: DesignTokens.CalcTypography.buttonSize,
+                    weight: DesignTokens.CalcTypography.buttonWeight
+                )
+                .foregroundColor(style.foregroundColor)
+                .frame(maxHeight: .infinity)
+                .frame(width: width)
+                .background(style.backgroundColor)
+                .cornerRadius(DesignTokens.CalcLayout.buttonCornerRadius)
+        }
+        .buttonStyle(.plain)
     }
 }

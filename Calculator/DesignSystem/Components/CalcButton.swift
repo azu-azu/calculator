@@ -50,8 +50,7 @@ struct CalcButtonView: View {
                     weight: DesignTokens.CalcTypography.buttonWeight
                 )
                 .foregroundColor(style.foregroundColor)
-                .frame(maxWidth: .infinity)
-                .frame(height: DesignTokens.CalcLayout.buttonHeight)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(style.backgroundColor)
                 .cornerRadius(DesignTokens.CalcLayout.buttonCornerRadius)
         }

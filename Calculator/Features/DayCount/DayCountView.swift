@@ -81,7 +81,7 @@ struct DayCountView: View {
                 Spacer(minLength: 40)
             }
             .padding(.horizontal, DesignTokens.InputLayout.screenHorizontal)
-            .padding(.top, 60)
+            .padding(.top, 16)
         }
     }
 }
