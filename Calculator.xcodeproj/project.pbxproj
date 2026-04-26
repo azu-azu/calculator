@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		010B1CEEB15B5810AAABF88D /* StatusBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1077A367FDE65ABA07C707CD /* StatusBarView.swift */; };
 		0178B3538C6DA77B75F0C567 /* HistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA0439ECBF3DC7534DCBBB7 /* HistoryItem.swift */; };
 		102A8B628F06E4F86F2C38DA /* WarikanEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C4EC6F1FA1758C2A83139E /* WarikanEngine.swift */; };
 		1B340510A3470B3CEA135C14 /* FormulaSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FB3226D80091A48C34606F /* FormulaSheetView.swift */; };
@@ -42,6 +43,7 @@
 		029C002F53F45C5AA977D03F /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		0444C593966659BDE54DC87A /* SideMenuTriggerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTriggerButton.swift; sourceTree = "<group>"; };
 		0481A2D3ECD3D4BFE3DC6DD6 /* SideMenuOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuOverlay.swift; sourceTree = "<group>"; };
+		1077A367FDE65ABA07C707CD /* StatusBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarView.swift; sourceTree = "<group>"; };
 		14823890265944BEC9EC5D99 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		177CA55216DDDC589027FB19 /* DesignTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTokens.swift; sourceTree = "<group>"; };
 		20761C52EB7E01A8BFAF1C64 /* HistoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryStore.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 			children = (
 				AEA114E9008F903B917B3FEB /* CalcButton.swift */,
 				8DE26E9EEFF60E2FACBDCF7D /* CardStyles.swift */,
+				1077A367FDE65ABA07C707CD /* StatusBarView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				8B17C43407F58687675E22C7 /* SideMenuTriggerButton.swift in Sources */,
 				6B8804304B29626FB103365A /* SpecialPayment.swift in Sources */,
 				B89C5710431DB74388997E6D /* SpecialPaymentRow.swift in Sources */,
+				010B1CEEB15B5810AAABF88D /* StatusBarView.swift in Sources */,
 				102A8B628F06E4F86F2C38DA /* WarikanEngine.swift in Sources */,
 				623745B3FEB82CC81053A94F /* WarikanView.swift in Sources */,
 			);

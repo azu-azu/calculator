@@ -76,7 +76,16 @@ struct ContentView: View {
                 selectedPage: $selectedPage
             )
         }
+        .overlay(alignment: .top) {
+            GeometryReader { geo in
+                StatusBarView()
+                    .padding(.horizontal, 36)
+                    .padding(.top, geo.safeAreaInsets.top > 0 ? geo.safeAreaInsets.top + 4 : 12)
+            }
+            .ignoresSafeArea()
+        }
         .gesture(sideMenuDragGesture())
+        .statusBarHidden(true)
         .preferredColorScheme(.dark)
     }
 

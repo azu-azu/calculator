@@ -76,6 +76,7 @@ struct HomeCalculatorView: View {
             onPercent: { engine.inputPercent() },
             onOpenParen: { engine.inputOpenParen() },
             onCloseParen: { engine.inputCloseParen() },
+            onToggleSign: { engine.toggleSign() },
             onSave: { showSaveDialog = true },
             onMenu: onMenu
         )

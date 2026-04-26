@@ -93,7 +93,7 @@ struct CalcEngine {
             currentNumber += digit
         }
         hasInput = true
-        displayValue = currentNumber
+        displayValue = displayForCurrentNumber
         updateExpression()
     }
 
@@ -105,7 +105,7 @@ struct CalcEngine {
             currentNumber += "."
             hasDecimalPoint = true
             hasInput = true
-            displayValue = currentNumber
+            displayValue = displayForCurrentNumber
             updateExpression()
         }
     }
@@ -177,6 +177,16 @@ struct CalcEngine {
             value = value / 100
             currentNumber = formatNumber(value)
             displayValue = currentNumber
+        }
+    }
+
+    mutating func toggleSign() {
+        if hasInput, let value = Decimal(string: currentNumber), value != 0 {
+            let negated = -value
+            currentNumber = formatNumber(negated)
+            hasDecimalPoint = currentNumber.contains(".")
+            displayValue = displayForCurrentNumber
+            updateExpression()
         }
     }
 
@@ -256,7 +266,12 @@ struct CalcEngine {
             if removed == "." {
                 hasDecimalPoint = false
             }
-            displayValue = currentNumber
+            // マイナス記号だけ残った場合は 0 に戻す
+            if currentNumber == "-" {
+                currentNumber = "0"
+                hasInput = false
+            }
+            displayValue = displayForCurrentNumber
             updateExpression()
         } else if hasInput {
             currentNumber = "0"
@@ -383,10 +398,18 @@ struct CalcEngine {
         hasInput = false
     }
 
+    private var displayForCurrentNumber: String {
+        currentNumber.hasPrefix("-") ? "(\(currentNumber))" : currentNumber
+    }
+
     private mutating func updateExpression() {
         var parts = tokens.map(\.display)
         if hasInput {
-            parts.append(currentNumber)
+            if currentNumber.hasPrefix("-") {
+                parts.append("(\(currentNumber))")
+            } else {
+                parts.append(currentNumber)
+            }
         }
         expression = parts.joined(separator: " ")
     }

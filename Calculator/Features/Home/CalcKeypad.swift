@@ -10,6 +10,7 @@ struct CalcKeypad: View {
     let onPercent: () -> Void
     let onOpenParen: () -> Void
     let onCloseParen: () -> Void
+    let onToggleSign: () -> Void
     let onSave: () -> Void
     let onMenu: () -> Void
 
@@ -21,11 +22,12 @@ struct CalcKeypad: View {
             let buttonWidth = (totalWidth - spacing * 3) / 4
 
             VStack(spacing: spacing) {
-                // Row 1: (, ), ← (wide)
+                // Row 1: (, ), %, ←
                 HStack(spacing: spacing) {
                     CalcButtonView("(", style: .function) { onOpenParen() }
                     CalcButtonView(")", style: .function) { onCloseParen() }
-                    wideButton("←", width: buttonWidth * 2 + spacing, style: .function) { onBackspace() }
+                    CalcButtonView("%", style: .function) { onPercent() }
+                    iconButton("delete.backward", style: .function) { onBackspace() }
                 }
 
                 // Row 2: 7, 8, 9, ÷
@@ -59,10 +61,10 @@ struct CalcKeypad: View {
                     CalcButtonView("+", style: .operatorStyle) { onOperator(.add) }
                 }
 
-                // Row 6: AC, %, =
+                // Row 6: AC, ±, =
                 HStack(spacing: spacing) {
                     CalcButtonView("AC", style: .function) { onClear() }
-                    CalcButtonView("%", style: .function) { onPercent() }
+                    iconButton("plus.forwardslash.minus", style: .function) { onToggleSign() }
                     wideButton("=", width: buttonWidth * 2 + spacing, style: .equals) { onEquals() }
                 }
 
@@ -99,6 +101,18 @@ struct CalcKeypad: View {
             }
             .padding(.horizontal, 12)
         }
+    }
+
+    private func iconButton(_ systemName: String, style: CalcButtonStyle, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            Image(systemName: systemName)
+                .font(.system(size: DesignTokens.CalcTypography.buttonSize - 4, weight: .medium))
+                .foregroundColor(style.foregroundColor)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(style.backgroundColor)
+                .cornerRadius(DesignTokens.CalcLayout.buttonCornerRadius)
+        }
+        .buttonStyle(.plain)
     }
 
     private func wideButton(_ label: String, width: CGFloat, style: CalcButtonStyle, action: @escaping () -> Void) -> some View {
