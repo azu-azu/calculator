@@ -257,14 +257,25 @@ struct GoalCalcView: View {
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         }
                         resultRow(label: weekdaysOnly ? "1時間 (8h/日)" : "1時間", value: dailyRate / (weekdaysOnly ? 8 : 24))
-                        Divider().background(DesignTokens.CommonBackgroundColors.cardBorderSubtle)
-                        resultRow(label: "1日", value: dailyRate)
-                        Divider().background(DesignTokens.CommonBackgroundColors.cardBorderSubtle)
-                        resultRow(label: weekdaysOnly ? "1週 (5日)" : "1週間", value: dailyRate * daysFor(.week))
-                        Divider().background(DesignTokens.CommonBackgroundColors.cardBorderSubtle)
-                        resultRow(label: weekdaysOnly ? "1ヶ月 (約22日)" : "1ヶ月", value: dailyRate * daysFor(.month))
-                        Divider().background(DesignTokens.CommonBackgroundColors.cardBorderSubtle)
-                        resultRow(label: weekdaysOnly ? "1年 (約261日)" : "1年", value: dailyRate * daysFor(.year))
+                        if totalDays > 1 {
+                            Divider().background(DesignTokens.CommonBackgroundColors.cardBorderSubtle)
+                            resultRow(label: "1日", value: dailyRate)
+                        }
+                        if totalDays > daysFor(.week) {
+                            Divider().background(DesignTokens.CommonBackgroundColors.cardBorderSubtle)
+                            resultRow(label: weekdaysOnly ? "1週 (5日)" : "1週間", value: dailyRate * daysFor(.week))
+                        }
+                        if totalDays > daysFor(.month) {
+                            Divider().background(DesignTokens.CommonBackgroundColors.cardBorderSubtle)
+                            resultRow(label: weekdaysOnly ? "1ヶ月 (約22日)" : "1ヶ月", value: dailyRate * daysFor(.month))
+                        }
+                        if mode == .deadline {
+                            Divider().background(DesignTokens.CommonBackgroundColors.cardBorderSubtle)
+                            resultRow(label: "最終期限", value: dailyRate * totalDays)
+                        } else {
+                            Divider().background(DesignTokens.CommonBackgroundColors.cardBorderSubtle)
+                            resultRow(label: weekdaysOnly ? "1年 (約261日)" : "1年", value: dailyRate * daysFor(.year))
+                        }
                     }
                     .cardStyle()
                 }
