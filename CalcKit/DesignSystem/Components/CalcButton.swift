@@ -32,13 +32,6 @@ enum CalcButtonStyle {
         }
     }
 
-    var innerHighlight: Color {
-        switch self {
-        case .number: Color.white.opacity(0.20)
-        case .function: Color.white.opacity(0.12)
-        case .operatorStyle, .equals: Color.white.opacity(0.20)
-        }
-    }
 }
 
 // MARK: - Liquid Glass Modifier
@@ -72,18 +65,15 @@ struct LiquidGlassButtonStyle: ViewModifier {
 struct CalcButtonView: View {
     let label: String
     let style: CalcButtonStyle
-    let isWide: Bool
     let action: () -> Void
 
     init(
         _ label: String,
         style: CalcButtonStyle = .number,
-        isWide: Bool = false,
         action: @escaping () -> Void
     ) {
         self.label = label
         self.style = style
-        self.isWide = isWide
         self.action = action
     }
 

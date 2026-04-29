@@ -70,15 +70,7 @@ struct CalcKeypad: View {
 
                 // Toolbar: ☰ (左) ... Save (右)
                 HStack {
-                    Button(action: onMenu) {
-                        Image(systemName: "line.3.horizontal")
-                            .font(.system(size: 14, weight: .semibold))
-                            .foregroundColor(DesignTokens.CommonTextColors.secondary)
-                            .frame(width: 44, height: 44)
-                            .background(DesignTokens.CommonBackgroundColors.cardHighlight)
-                            .clipShape(Circle())
-                    }
-                    .buttonStyle(.plain)
+                    SideMenuTriggerButton { onMenu() }
 
                     Spacer()
 

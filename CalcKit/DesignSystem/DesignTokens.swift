@@ -17,19 +17,13 @@ struct DesignTokens {
     enum CommonBackgroundColors {
         static let card = Color.white.opacity(0.1)
         static let cardHighlight = Color.white.opacity(0.15)
-        static let cardInteractive = Color.white.opacity(0.25)
-        static let cardBorder = Color.white.opacity(0.3)
         static let cardBorderSubtle = Color.white.opacity(0.1)
         static let cardSubtle = Color.white.opacity(0.08)
-        static let cardMinimal = Color.white.opacity(0.03)
-        static let shadow = Color.black.opacity(0.3)
     }
 
     // MARK: - Calculator Colors
 
     enum CalcColors {
-        static let numberButton = Color.white.opacity(0.1)
-        static let functionButton = Color.white.opacity(0.15)
         static let operatorButton = AppTheme.operatorButton
         static let equalsButton = AppTheme.accent
         static let displayText = CommonTextColors.primary
@@ -62,10 +56,6 @@ struct DesignTokens {
 
     enum InputColors {
         static let fieldBackground = Color.white.opacity(0.08)
-        static let fieldBorder = Color.white.opacity(0.15)
-        static let fieldText = CommonTextColors.primary
-        static let placeholder = CommonTextColors.quinary
-        static let accent = AppTheme.accent
     }
 
     // MARK: - Input Layout
