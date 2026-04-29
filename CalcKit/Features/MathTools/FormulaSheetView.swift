@@ -8,6 +8,24 @@ struct FormulaSheetView: View {
             ScrollView {
                 VStack(spacing: 16) {
                     formulaCard(
+                        title: "展開の基本公式",
+                        formula: "(x + a)(x + b) = x² + (a + b)x + ab\n\n(x + a)² = x² + 2ax + a²",
+                        description: "Basic Expansion Formulas"
+                    )
+
+                    formulaCard(
+                        title: "2次関数の標準形",
+                        formula: "y = a(x − p)² + q",
+                        description: "Vertex Form of a Quadratic Function"
+                    )
+
+                    formulaCard(
+                        title: "平方完成の基本形",
+                        formula: "x² + 2ax = (x + a)² − a²",
+                        description: "Basic Form of Completing the Square"
+                    )
+
+                    formulaCard(
                         title: "ピタゴラスの定理",
                         formula: "a² + b² = c²",
                         description: "直角三角形の3辺の関係"
@@ -15,7 +33,7 @@ struct FormulaSheetView: View {
 
                     formulaCard(
                         title: "二次方程式の解の公式",
-                        formula: "x = (-b ± √(b²-4ac)) / 2a",
+                        formula: "x = (-b ± √(b² - 4ac)) / 2a",
                         description: "ax² + bx + c = 0 の解"
                     )
 
@@ -79,7 +97,8 @@ struct FormulaSheetView: View {
                 .foregroundColor(DesignTokens.CommonTextColors.secondary)
 
             Text(formula)
-                .dynamicFont(size: 22, weight: .medium, design: .monospaced)
+                .dynamicFont(size: 22, weight: .medium, design: .serif)
+                .italic()
                 .foregroundColor(AppTheme.accent)
 
             Text(description)
