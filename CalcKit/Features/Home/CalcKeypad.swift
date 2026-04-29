@@ -72,11 +72,11 @@ struct CalcKeypad: View {
                 HStack {
                     Button(action: onMenu) {
                         Image(systemName: "line.3.horizontal")
-                            .font(.system(size: 16, weight: .medium))
+                            .font(.system(size: 14, weight: .semibold))
                             .foregroundColor(DesignTokens.CommonTextColors.secondary)
-                            .frame(width: 48, height: DesignTokens.CalcLayout.toolbarHeight)
-                            .background(DesignTokens.CalcColors.functionButton)
-                            .cornerRadius(10)
+                            .frame(width: 44, height: 44)
+                            .background(DesignTokens.CommonBackgroundColors.cardHighlight)
+                            .clipShape(Circle())
                     }
                     .buttonStyle(.plain)
 
@@ -109,8 +109,10 @@ struct CalcKeypad: View {
                 .font(.system(size: DesignTokens.CalcTypography.buttonSize - 4, weight: .medium))
                 .foregroundColor(style.foregroundColor)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(style.backgroundColor)
-                .cornerRadius(DesignTokens.CalcLayout.buttonCornerRadius)
+                .modifier(LiquidGlassButtonStyle(
+                    style: style,
+                    cornerRadius: DesignTokens.CalcLayout.buttonCornerRadius
+                ))
         }
         .buttonStyle(.plain)
     }
@@ -125,8 +127,10 @@ struct CalcKeypad: View {
                 .foregroundColor(style.foregroundColor)
                 .frame(maxHeight: .infinity)
                 .frame(width: width)
-                .background(style.backgroundColor)
-                .cornerRadius(DesignTokens.CalcLayout.buttonCornerRadius)
+                .modifier(LiquidGlassButtonStyle(
+                    style: style,
+                    cornerRadius: DesignTokens.CalcLayout.buttonCornerRadius
+                ))
         }
         .buttonStyle(.plain)
     }

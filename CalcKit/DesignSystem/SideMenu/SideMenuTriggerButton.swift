@@ -6,13 +6,13 @@ struct SideMenuTriggerButton: View {
     var body: some View {
         Button(action: action) {
             Image(systemName: "line.3.horizontal")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 18, height: 18)
-                .foregroundColor(.white)
+                .font(.system(size: 14, weight: .semibold))
+                .foregroundColor(DesignTokens.CommonTextColors.secondary)
                 .frame(width: 44, height: 44)
-                .contentShape(Rectangle())
+                .background(DesignTokens.CommonBackgroundColors.cardHighlight)
+                .clipShape(Circle())
         }
+        .buttonStyle(.plain)
         .accessibilityLabel("メニューを開く")
     }
 }
