@@ -91,17 +91,7 @@ struct MathToolsView: View {
         .sheet(isPresented: $showFormulas) {
             FormulaSheetView()
         }
-        .toolbar {
-            ToolbarItemGroup(placement: .keyboard) {
-                Spacer()
-                Button {
-                    isFocused = false
-                } label: {
-                    Image(systemName: "keyboard.chevron.compact.down")
-                }
-                .foregroundColor(AppTheme.accent)
-            }
-        }
+        .keyboardCloseToolbar { isFocused = false }
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 isFocused = true

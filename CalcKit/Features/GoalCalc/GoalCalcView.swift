@@ -285,17 +285,7 @@ struct GoalCalcView: View {
             .padding(.horizontal, DesignTokens.InputLayout.screenHorizontal)
             .padding(.top, 16)
         }
-        .toolbar {
-            ToolbarItemGroup(placement: .keyboard) {
-                Spacer()
-                Button {
-                    isFocused = false
-                } label: {
-                    Image(systemName: "keyboard.chevron.compact.down")
-                }
-                .foregroundColor(AppTheme.accent)
-            }
-        }
+        .keyboardCloseToolbar { isFocused = false }
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 isFocused = true

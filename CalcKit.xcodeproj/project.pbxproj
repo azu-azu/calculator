@@ -25,6 +25,7 @@
 		764D94E758B2A278BC5EEB1A /* SpecialPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B122C95EEA41FC1B6EDA02 /* SpecialPayment.swift */; };
 		86425EE36D1E4844DFA0B83F /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B3100E3359CA230AE766DE /* HistoryView.swift */; };
 		8FF797F20CBC6295D4CE206C /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FF72E717BF6D57130A3350 /* ColorExtensions.swift */; };
+		9152894F5B4924862D1BD6C5 /* CircleIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5705214CFD363EFA739AF7F3 /* CircleIconButton.swift */; };
 		92D9538BB88524113794A6EE /* CardStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6180818847060A751B698206 /* CardStyles.swift */; };
 		9472504019AAB29D9896951E /* CalcDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E6D0B28BB812B234ECE796 /* CalcDisplay.swift */; };
 		A20E8E0B3DB7F2229D1C6CA3 /* HistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97D9996A0A6C80DAF54246 /* HistoryItem.swift */; };
@@ -36,6 +37,7 @@
 		C99B9F65AB5307F3036D9094 /* StatusBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618B9FA6D6C065FE3D429192 /* StatusBarView.swift */; };
 		EABBD4E6490D715C0BFB1024 /* DynamicFontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF71F40C9C21D6B93CC84061 /* DynamicFontModifier.swift */; };
 		EFF97978E763FAC0BD804C96 /* SideMenuOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BFB9E478E9E56A3C9D45EE /* SideMenuOverlay.swift */; };
+		F528FD30496793AC72C48E41 /* KeyboardCloseToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB70800F4399EC5E4B6463E /* KeyboardCloseToolbar.swift */; };
 		FA5B6EB8D1670A6B62B738D5 /* FormulaSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D09F40D8BD50E2D983D11D2 /* FormulaSheetView.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +54,7 @@
 		451032C0262222352342544D /* CalcButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcButton.swift; sourceTree = "<group>"; };
 		4CBDF62F3A6213B7D106E8E3 /* DesignTokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignTokens.swift; sourceTree = "<group>"; };
 		52D5E96FAF496E4D899054BF /* MathToolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathToolsView.swift; sourceTree = "<group>"; };
+		5705214CFD363EFA739AF7F3 /* CircleIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleIconButton.swift; sourceTree = "<group>"; };
 		5D09F40D8BD50E2D983D11D2 /* FormulaSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaSheetView.swift; sourceTree = "<group>"; };
 		6180818847060A751B698206 /* CardStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStyles.swift; sourceTree = "<group>"; };
 		618B9FA6D6C065FE3D429192 /* StatusBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarView.swift; sourceTree = "<group>"; };
@@ -67,6 +70,7 @@
 		D21A99C630D7093458A98C22 /* DayCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCountView.swift; sourceTree = "<group>"; };
 		D6D876117E5C2768142DF567 /* CalcKeypad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcKeypad.swift; sourceTree = "<group>"; };
 		D7E6D0B28BB812B234ECE796 /* CalcDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcDisplay.swift; sourceTree = "<group>"; };
+		DBB70800F4399EC5E4B6463E /* KeyboardCloseToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardCloseToolbar.swift; sourceTree = "<group>"; };
 		F5F83953FE4F6C7006E3A54B /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
 		F823957052BA4B39322DA25B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCCB8C57AE68A1F9A564C9F4 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
@@ -196,6 +200,8 @@
 			children = (
 				451032C0262222352342544D /* CalcButton.swift */,
 				6180818847060A751B698206 /* CardStyles.swift */,
+				5705214CFD363EFA739AF7F3 /* CircleIconButton.swift */,
+				DBB70800F4399EC5E4B6463E /* KeyboardCloseToolbar.swift */,
 				618B9FA6D6C065FE3D429192 /* StatusBarView.swift */,
 			);
 			path = Components;
@@ -341,6 +347,7 @@
 				10EE4663938B2FD50F820126 /* CalcKeypad.swift in Sources */,
 				6572F81CC588583796D5FCEA /* CalcKitApp.swift in Sources */,
 				92D9538BB88524113794A6EE /* CardStyles.swift in Sources */,
+				9152894F5B4924862D1BD6C5 /* CircleIconButton.swift in Sources */,
 				8FF797F20CBC6295D4CE206C /* ColorExtensions.swift in Sources */,
 				373FA09FA489762534C1DB01 /* ContentView.swift in Sources */,
 				67290A8D13F12DCF633545E1 /* DateExtensions.swift in Sources */,
@@ -353,6 +360,7 @@
 				711E1708F1E92233F4F782E0 /* HistoryStore.swift in Sources */,
 				86425EE36D1E4844DFA0B83F /* HistoryView.swift in Sources */,
 				5E9AB90F5B6F515A8C78F768 /* HomeCalculatorView.swift in Sources */,
+				F528FD30496793AC72C48E41 /* KeyboardCloseToolbar.swift in Sources */,
 				216CA9EA51DCC501ED862125 /* MathToolsView.swift in Sources */,
 				1F8029082847C7F070FCBD7E /* SaveDialog.swift in Sources */,
 				550F2AFBFD7D4ADB6349ECF1 /* SideMenu.swift in Sources */,

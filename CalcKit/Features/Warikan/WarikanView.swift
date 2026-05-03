@@ -154,24 +154,7 @@ struct WarikanView: View {
             .padding(.horizontal, DesignTokens.InputLayout.screenHorizontal)
             .padding(.top, 16)
         }
-        .safeAreaInset(edge: .bottom, spacing: 0) {
-            if focusedField != nil {
-                HStack {
-                    Spacer()
-                    Button {
-                        focusedField = nil
-                    } label: {
-                        Image(systemName: "keyboard.chevron.compact.down")
-                            .font(.system(size: 18, design: .rounded))
-                            .foregroundColor(AppTheme.accent)
-                            .padding(10)
-                    }
-                }
-                .padding(.horizontal, 16)
-                .padding(.vertical, 6)
-                .background(.ultraThinMaterial)
-            }
-        }
+        .keyboardCloseToolbar { focusedField = nil }
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 focusedField = .totalAmount
