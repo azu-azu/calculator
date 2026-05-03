@@ -184,7 +184,7 @@ struct GoalCalcView: View {
                         }
                         .buttonStyle(.plain)
 
-                        TextField("目標数値", text: $targetText)
+                        TextField("数値を入力", text: $targetText)
                             .keyboardType(.decimalPad)
                             .focused($isFocused)
                             .dynamicFont(size: 24, weight: .semibold)

@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 enum CalcButtonStyle {
     case number
@@ -64,7 +65,10 @@ struct CalcButtonView: View {
     }
 
     var body: some View {
-        Button(action: action) {
+        Button {
+            UIImpactFeedbackGenerator(style: .rigid).impactOccurred()
+            action()
+        } label: {
             Text(label)
                 .dynamicFont(
                     size: DesignTokens.CalcTypography.buttonSize,

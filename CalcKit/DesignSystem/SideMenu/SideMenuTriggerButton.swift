@@ -1,10 +1,14 @@
 import SwiftUI
+import UIKit
 
 struct SideMenuTriggerButton: View {
     let action: () -> Void
 
     var body: some View {
-        Button(action: action) {
+        Button {
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+            action()
+        } label: {
             Image(systemName: "line.3.horizontal")
                 .font(.system(size: 14, weight: .semibold))
                 .foregroundColor(DesignTokens.CommonTextColors.secondary)
