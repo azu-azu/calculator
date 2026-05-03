@@ -37,7 +37,7 @@ struct HomeCalculatorView: View {
                         displayValue: engine.displayValue
                     )
                 }
-                .background(Color(hex: "#1C2640"))
+                .background(Color(hex: "#101010"))
 
                 keypad
                     .frame(height: DesignTokens.CalcLayout.buttonHeight * 6
@@ -46,11 +46,12 @@ struct HomeCalculatorView: View {
                     .background(Color(hex: "#424242"))
             }
             .clipShape(RoundedRectangle(cornerRadius: 20))
-            .overlay(
-                RoundedRectangle(cornerRadius: 20)
-                    .strokeBorder(Color.white.opacity(0.18), lineWidth: 1)
+            .padding(EdgeInsets(top: 2, leading: 1, bottom: 4, trailing: 1))
+            .background(
+                RoundedRectangle(cornerRadius: 24)
+                    .fill(Color(hex: "#4A5E60"))
             )
-            .padding(.top, 60)
+            .padding(.top, 36)
             .padding(.horizontal, 4)
 
             calcToolbar
