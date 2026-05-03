@@ -196,9 +196,6 @@ struct GoalCalcView: View {
 
                     // People count
                     HStack {
-                        Text("人数")
-                            .dynamicFont(size: 14, weight: .medium)
-                            .foregroundColor(DesignTokens.CommonTextColors.secondary)
                         Spacer()
                         Button {
                             if peopleCount > 1 { peopleCount -= 1 }
@@ -211,6 +208,9 @@ struct GoalCalcView: View {
                             .dynamicFont(size: 20, weight: .semibold, design: .monospaced)
                             .foregroundColor(DesignTokens.CommonTextColors.primary)
                             .frame(width: 40)
+                        Text("人で")
+                            .dynamicFont(size: 16, weight: .regular)
+                            .foregroundColor(DesignTokens.CommonTextColors.secondary)
                         Button {
                             peopleCount += 1
                         } label: {
