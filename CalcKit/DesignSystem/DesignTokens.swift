@@ -24,8 +24,6 @@ struct DesignTokens {
     // MARK: - Calculator Colors
 
     enum CalcColors {
-        static let operatorButton = AppTheme.operatorButton
-        static let equalsButton = AppTheme.accent
         static let displayText = CommonTextColors.primary
         static let expressionText = CommonTextColors.tertiary
     }

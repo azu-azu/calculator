@@ -9,7 +9,7 @@ struct SideMenuTriggerButton: View {
                 .font(.system(size: 14, weight: .semibold))
                 .foregroundColor(.white)
                 .frame(width: 44, height: 44)
-                .background(Color(hex: "#2A2A2A"))
+                .background(Color(hex: "#1A1A1A"))
                 .clipShape(Circle())
         }
         .buttonStyle(.plain)

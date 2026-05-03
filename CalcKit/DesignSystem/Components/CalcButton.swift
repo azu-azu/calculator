@@ -8,10 +8,10 @@ enum CalcButtonStyle {
 
     var backgroundColor: Color {
         switch self {
-        case .number: Color(hex: "#A8A8A8")
-        case .function: Color(hex: "#7A7A7A")
-        case .operatorStyle: DesignTokens.CalcColors.operatorButton
-        case .equals: DesignTokens.CalcColors.equalsButton
+        case .number: Color(hex: "#A6A6A6")
+        case .function: Color(hex: "#B8B0A7")
+        case .operatorStyle: Color(hex: "#E99689")
+        case .equals: Color(hex: "#97BEC1")
         }
     }
 
@@ -19,6 +19,19 @@ enum CalcButtonStyle {
         Color(hex: "#111111")
     }
 
+    var fontSize: CGFloat {
+        switch self {
+        case .function: DesignTokens.CalcTypography.buttonSize + 2
+        default: DesignTokens.CalcTypography.buttonSize
+        }
+    }
+
+    var fontWeight: Font.Weight {
+        switch self {
+        case .function: .semibold
+        default: DesignTokens.CalcTypography.buttonWeight
+        }
+    }
 }
 
 // MARK: - Raised Button Modifier
@@ -37,7 +50,7 @@ struct RaisedButtonStyle: ViewModifier {
             .padding(EdgeInsets(top: 2, leading: 2, bottom: 4, trailing: 2))
             .background(
                 RoundedRectangle(cornerRadius: cornerRadius + 2)
-                    .fill(Color.black)
+                    .fill(Color.black.opacity(0.6))
             )
     }
 }
@@ -61,8 +74,8 @@ struct CalcButtonView: View {
         Button(action: action) {
             Text(label)
                 .dynamicFont(
-                    size: DesignTokens.CalcTypography.buttonSize,
-                    weight: DesignTokens.CalcTypography.buttonWeight
+                    size: style.fontSize,
+                    weight: style.fontWeight
                 )
                 .foregroundColor(style.foregroundColor)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)

@@ -98,7 +98,7 @@ struct CalcKeypad: View {
     private func iconButton(_ systemName: String, style: CalcButtonStyle, action: @escaping () -> Void) -> some View {
         Button(action: action) {
             Image(systemName: systemName)
-                .font(.system(size: DesignTokens.CalcTypography.buttonSize - 4, weight: .medium))
+                .font(.system(size: style.fontSize - 4, weight: style.fontWeight))
                 .foregroundColor(style.foregroundColor)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .modifier(RaisedButtonStyle(

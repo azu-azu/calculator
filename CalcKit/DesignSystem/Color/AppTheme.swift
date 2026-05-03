@@ -9,7 +9,7 @@ enum AppTheme {
         endPoint: .bottom
     )
 
-    static let accent = Color(hex: "#8CB6B8")
+    static let accent = Color(hex: "#97BEC1")
 
-    static let operatorButton = Color(hex: "#F29A8D")
+    static let operatorButton = Color(hex: "#E99689")
 }
