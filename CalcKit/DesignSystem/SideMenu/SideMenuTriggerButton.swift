@@ -7,9 +7,9 @@ struct SideMenuTriggerButton: View {
         Button(action: action) {
             Image(systemName: "line.3.horizontal")
                 .font(.system(size: 14, weight: .semibold))
-                .foregroundColor(DesignTokens.CommonTextColors.secondary)
+                .foregroundColor(.white)
                 .frame(width: 44, height: 44)
-                .background(DesignTokens.CommonBackgroundColors.cardHighlight)
+                .background(Color(hex: "#2A2A2A"))
                 .clipShape(Circle())
         }
         .buttonStyle(.plain)

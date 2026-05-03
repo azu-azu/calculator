@@ -1,7 +1,7 @@
 import SwiftUI
 
 enum AppTheme {
-    static let background = Color(hex: "#454545")
+    static let background = Color(hex: "#353535")
 
     static let backgroundGradient = LinearGradient(
         colors: [background],

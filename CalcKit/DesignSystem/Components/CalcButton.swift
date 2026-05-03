@@ -8,14 +8,15 @@ enum CalcButtonStyle {
 
     var backgroundColor: Color {
         switch self {
-        case .number, .function: Color(hex: "#999999")
+        case .number: Color(hex: "#A8A8A8")
+        case .function: Color(hex: "#7A7A7A")
         case .operatorStyle: DesignTokens.CalcColors.operatorButton
         case .equals: DesignTokens.CalcColors.equalsButton
         }
     }
 
     var foregroundColor: Color {
-        .black
+        Color(hex: "#111111")
     }
 
 }
