@@ -102,7 +102,7 @@ struct FormulaSheetView: View {
         VStack(alignment: .leading, spacing: 8) {
             Text(item.title)
                 .dynamicFont(size: 14, weight: .semibold)
-                .foregroundColor(DesignTokens.CommonTextColors.secondary)
+                .foregroundColor(DesignTokens.CardTextColors.secondary)
 
             Text(item.formula)
                 .dynamicFont(size: 22, weight: .medium, design: .serif)
@@ -110,11 +110,11 @@ struct FormulaSheetView: View {
                 .multilineTextAlignment(.leading)
                 .lineSpacing(4)
                 .minimumScaleFactor(0.75)
-                .foregroundColor(AppTheme.accent)
+                .foregroundColor(AppTheme.accentOnCard)
 
             Text(item.description)
                 .dynamicFont(size: 13, weight: .regular)
-                .foregroundColor(DesignTokens.CommonTextColors.quaternary)
+                .foregroundColor(DesignTokens.CardTextColors.quaternary)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .cardStyle()

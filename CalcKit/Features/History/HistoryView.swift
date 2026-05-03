@@ -47,22 +47,22 @@ struct HistoryView: View {
             HStack {
                 Text(item.name)
                     .dynamicFont(size: 16, weight: .semibold)
-                    .foregroundColor(DesignTokens.CommonTextColors.primary)
+                    .foregroundColor(DesignTokens.CardTextColors.primary)
 
                 Spacer()
 
                 Text(item.createdAt, style: .date)
                     .dynamicFont(size: 12, weight: .regular)
-                    .foregroundColor(DesignTokens.CommonTextColors.quaternary)
+                    .foregroundColor(DesignTokens.CardTextColors.quaternary)
             }
 
             Text(item.expression)
                 .dynamicFont(size: 14, weight: .regular)
-                .foregroundColor(DesignTokens.CommonTextColors.tertiary)
+                .foregroundColor(DesignTokens.CardTextColors.tertiary)
 
             Text("= \(item.result)")
                 .dynamicFont(size: 20, weight: .semibold, design: .monospaced)
-                .foregroundColor(AppTheme.accent)
+                .foregroundColor(AppTheme.accentOnCard)
         }
         .cardStyle()
         .contextMenu {

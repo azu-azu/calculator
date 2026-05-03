@@ -4,7 +4,7 @@ struct CardStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
             .padding(DesignTokens.InputLayout.cardPadding)
-            .background(DesignTokens.CommonBackgroundColors.card)
+            .background(Color(hex: "#A6A6A6"))
             .cornerRadius(DesignTokens.InputLayout.cardCornerRadius)
     }
 }

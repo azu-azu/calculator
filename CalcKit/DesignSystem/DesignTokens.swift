@@ -12,13 +12,19 @@ struct DesignTokens {
         static let quinary = Color.white.opacity(0.5)
     }
 
+    enum CardTextColors {
+        static let primary = Color.black.opacity(0.9)
+        static let secondary = Color.black.opacity(0.7)
+        static let tertiary = Color.black.opacity(0.55)
+        static let quaternary = Color.black.opacity(0.4)
+    }
+
     // MARK: - Common Background Colors
 
     enum CommonBackgroundColors {
-        static let card = Color.white.opacity(0.1)
         static let cardHighlight = Color.white.opacity(0.15)
-        static let cardBorderSubtle = Color.white.opacity(0.1)
-        static let cardSubtle = Color.white.opacity(0.08)
+        static let cardBorderSubtle = Color.black.opacity(0.15)
+        static let cardSubtle = Color.black.opacity(0.08)
     }
 
     // MARK: - Calculator Colors
@@ -53,7 +59,7 @@ struct DesignTokens {
     // MARK: - Input Colors (Warikan, GoalCalc etc.)
 
     enum InputColors {
-        static let fieldBackground = Color.white.opacity(0.08)
+        static let fieldBackground = Color.black.opacity(0.35)
     }
 
     // MARK: - Input Layout

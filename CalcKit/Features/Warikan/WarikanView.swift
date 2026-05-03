@@ -53,13 +53,13 @@ struct WarikanView: View {
                     VStack(alignment: .leading, spacing: 6) {
                         Text("合計額")
                             .dynamicFont(size: 14, weight: .medium)
-                            .foregroundColor(DesignTokens.CommonTextColors.secondary)
+                            .foregroundColor(DesignTokens.CardTextColors.secondary)
                         HStack {
                             TextField("0", text: $totalAmountText)
                                 .keyboardType(.numberPad)
                                 .focused($focusedField, equals: .totalAmount)
                                 .dynamicFont(size: 20, weight: .semibold)
-                                .foregroundColor(DesignTokens.CommonTextColors.primary)
+                                .foregroundColor(DesignTokens.CardTextColors.primary)
 
                             if !totalAmountText.isEmpty {
                                 Button {
@@ -67,7 +67,7 @@ struct WarikanView: View {
                                     focusedField = .totalAmount
                                 } label: {
                                     Image(systemName: "xmark.circle.fill")
-                                        .foregroundColor(DesignTokens.CommonTextColors.quaternary)
+                                        .foregroundColor(DesignTokens.CardTextColors.quaternary)
                                 }
                             }
                         }
@@ -80,19 +80,19 @@ struct WarikanView: View {
                     VStack(alignment: .leading, spacing: 6) {
                         Text("人数")
                             .dynamicFont(size: 14, weight: .medium)
-                            .foregroundColor(DesignTokens.CommonTextColors.secondary)
+                            .foregroundColor(DesignTokens.CardTextColors.secondary)
                         HStack {
                             Button {
                                 if peopleCount > 1 { peopleCount -= 1 }
                             } label: {
                                 Image(systemName: "minus.circle.fill")
                                     .font(.system(size: 28))
-                                    .foregroundColor(DesignTokens.CommonTextColors.tertiary)
+                                    .foregroundColor(DesignTokens.CardTextColors.tertiary)
                             }
 
                             Text("\(peopleCount)")
                                 .dynamicFont(size: 24, weight: .semibold, design: .monospaced)
-                                .foregroundColor(DesignTokens.CommonTextColors.primary)
+                                .foregroundColor(DesignTokens.CardTextColors.primary)
                                 .frame(width: 60)
 
                             Button {
@@ -100,7 +100,7 @@ struct WarikanView: View {
                             } label: {
                                 Image(systemName: "plus.circle.fill")
                                     .font(.system(size: 28))
-                                    .foregroundColor(AppTheme.accent)
+                                    .foregroundColor(AppTheme.accentOnCard)
                             }
 
                             Spacer()
@@ -210,13 +210,13 @@ struct WarikanView: View {
         return VStack(alignment: .leading, spacing: 12) {
             Text("結果")
                 .dynamicFont(size: 16, weight: .semibold)
-                .foregroundColor(DesignTokens.CommonTextColors.secondary)
+                .foregroundColor(DesignTokens.CardTextColors.secondary)
 
             // 合計額（赤）
             HStack {
                 Text("合計額")
                     .dynamicFont(size: 14, weight: .regular)
-                    .foregroundColor(DesignTokens.CommonTextColors.tertiary)
+                    .foregroundColor(DesignTokens.CardTextColors.tertiary)
                 Spacer()
                 Text("¥\(displayActualTotal.formatted())")
                     .dynamicFont(size: 14, weight: .semibold, design: .monospaced)
@@ -227,12 +227,12 @@ struct WarikanView: View {
             HStack {
                 Text("端数")
                     .dynamicFont(size: 14, weight: .regular)
-                    .foregroundColor(DesignTokens.CommonTextColors.tertiary)
+                    .foregroundColor(DesignTokens.CardTextColors.tertiary)
                 Spacer()
                 Text("¥\(displayRemainder.formatted())")
                     .dynamicFont(size: 14, weight: .medium, design: .monospaced)
                     .foregroundColor(displayRemainder == 0
-                        ? DesignTokens.CommonTextColors.quaternary
+                        ? DesignTokens.CardTextColors.quaternary
                         : DesignTokens.StatusColors.warning)
             }
 
@@ -244,11 +244,11 @@ struct WarikanView: View {
                     HStack {
                         Text("特殊払い")
                             .dynamicFont(size: 14, weight: .regular)
-                            .foregroundColor(DesignTokens.CommonTextColors.tertiary)
+                            .foregroundColor(DesignTokens.CardTextColors.tertiary)
                         Spacer()
                         Text("¥\(sp.amount.formatted()) × \(sp.count)人")
                             .dynamicFont(size: 14, weight: .medium, design: .monospaced)
-                            .foregroundColor(DesignTokens.CommonTextColors.secondary)
+                            .foregroundColor(DesignTokens.CardTextColors.secondary)
                     }
                 }
 
@@ -260,11 +260,11 @@ struct WarikanView: View {
             HStack {
                 Text("ワリカン")
                     .dynamicFont(size: 16, weight: .medium)
-                    .foregroundColor(DesignTokens.CommonTextColors.primary)
+                    .foregroundColor(DesignTokens.CardTextColors.primary)
                 Spacer()
                 Text("¥\(displayPerPerson.formatted()) × \(result.remainingPeople)人")
                     .dynamicFont(size: 20, weight: .bold, design: .monospaced)
-                    .foregroundColor(AppTheme.accent)
+                    .foregroundColor(AppTheme.accentOnCard)
             }
 
             Divider()
@@ -274,13 +274,13 @@ struct WarikanView: View {
             VStack(alignment: .leading, spacing: 6) {
                 Text("金額訂正")
                     .dynamicFont(size: 12, weight: .regular)
-                    .foregroundColor(DesignTokens.CommonTextColors.quaternary)
+                    .foregroundColor(DesignTokens.CardTextColors.quaternary)
                 HStack(spacing: 8) {
                     TextField("\(result.perPerson)", text: $adjustedAmountText)
                         .keyboardType(.numberPad)
                         .focused($focusedField, equals: .adjustedAmount)
                         .dynamicFont(size: 18, weight: .semibold)
-                        .foregroundColor(DesignTokens.CommonTextColors.primary)
+                        .foregroundColor(DesignTokens.CardTextColors.primary)
                         .padding(.horizontal, 12)
                         .padding(.vertical, 8)
                         .background(DesignTokens.InputColors.fieldBackground)
@@ -288,7 +288,7 @@ struct WarikanView: View {
 
                     Text("× \(result.remainingPeople)人")
                         .dynamicFont(size: 16, weight: .medium)
-                        .foregroundColor(DesignTokens.CommonTextColors.tertiary)
+                        .foregroundColor(DesignTokens.CardTextColors.tertiary)
                 }
             }
         }

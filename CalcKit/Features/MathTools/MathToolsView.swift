@@ -32,18 +32,18 @@ struct MathToolsView: View {
                 VStack(alignment: .leading, spacing: 12) {
                     Text("ルート計算")
                         .dynamicFont(size: 16, weight: .semibold)
-                        .foregroundColor(DesignTokens.CommonTextColors.secondary)
+                        .foregroundColor(DesignTokens.CardTextColors.secondary)
 
                     HStack(spacing: 12) {
                         Text("√")
                             .dynamicFont(size: 28, weight: .light)
-                            .foregroundColor(AppTheme.accent)
+                            .foregroundColor(AppTheme.accentOnCard)
 
                         TextField("数値を入力", text: $sqrtInput)
                             .keyboardType(.decimalPad)
                             .focused($isFocused)
                             .dynamicFont(size: 20, weight: .medium)
-                            .foregroundColor(DesignTokens.CommonTextColors.primary)
+                            .foregroundColor(DesignTokens.CardTextColors.primary)
                             .padding(12)
                             .background(DesignTokens.InputColors.fieldBackground)
                             .cornerRadius(8)
@@ -53,14 +53,14 @@ struct MathToolsView: View {
                         HStack(spacing: 8) {
                             Text("=")
                                 .dynamicFont(size: 20, weight: .regular)
-                                .foregroundColor(DesignTokens.CommonTextColors.tertiary)
+                                .foregroundColor(DesignTokens.CardTextColors.tertiary)
                             Text(sqrtResult)
                                 .dynamicFont(
                                     size: DesignTokens.FeatureTypography.resultSize,
                                     weight: DesignTokens.FeatureTypography.resultWeight,
                                     design: .monospaced
                                 )
-                                .foregroundColor(AppTheme.accent)
+                                .foregroundColor(AppTheme.accentOnCard)
                         }
                     }
                 }

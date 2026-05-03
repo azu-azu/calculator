@@ -12,12 +12,12 @@ struct SpecialPaymentRow<F: Hashable>: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text("金額")
                     .dynamicFont(size: 12, weight: .regular)
-                    .foregroundColor(DesignTokens.CommonTextColors.quaternary)
+                    .foregroundColor(DesignTokens.CardTextColors.quaternary)
                 TextField("0", text: $payment.amountText)
                     .keyboardType(.numberPad)
                     .focused(isFocused, equals: focusValue)
                     .dynamicFont(size: 16, weight: .medium)
-                    .foregroundColor(DesignTokens.CommonTextColors.primary)
+                    .foregroundColor(DesignTokens.CardTextColors.primary)
                     .padding(.horizontal, 12)
                     .padding(.vertical, 8)
                     .background(DesignTokens.InputColors.fieldBackground)
@@ -28,19 +28,19 @@ struct SpecialPaymentRow<F: Hashable>: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text("人数")
                     .dynamicFont(size: 12, weight: .regular)
-                    .foregroundColor(DesignTokens.CommonTextColors.quaternary)
+                    .foregroundColor(DesignTokens.CardTextColors.quaternary)
                 HStack {
                     Button { if payment.count > 1 { payment.count -= 1 } } label: {
                         Image(systemName: "minus.circle.fill")
-                            .foregroundColor(DesignTokens.CommonTextColors.tertiary)
+                            .foregroundColor(DesignTokens.CardTextColors.tertiary)
                     }
                     Text("\(payment.count)")
                         .dynamicFont(size: 16, weight: .medium)
-                        .foregroundColor(DesignTokens.CommonTextColors.primary)
+                        .foregroundColor(DesignTokens.CardTextColors.primary)
                         .frame(width: 30)
                     Button { payment.count += 1 } label: {
                         Image(systemName: "plus.circle.fill")
-                            .foregroundColor(AppTheme.accent)
+                            .foregroundColor(AppTheme.accentOnCard)
                     }
                 }
                 .padding(.vertical, 8)
@@ -50,7 +50,7 @@ struct SpecialPaymentRow<F: Hashable>: View {
             // Clear
             Button(action: onClear) {
                 Image(systemName: "xmark.circle.fill")
-                    .foregroundColor(DesignTokens.CommonTextColors.quaternary)
+                    .foregroundColor(DesignTokens.CardTextColors.quaternary)
                     .font(.system(size: 20))
             }
         }

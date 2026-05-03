@@ -30,7 +30,7 @@ struct DayCountView: View {
                     HStack {
                         Text("スタート日")
                             .dynamicFont(size: 14, weight: .medium)
-                            .foregroundColor(DesignTokens.CommonTextColors.secondary)
+                            .foregroundColor(DesignTokens.CardTextColors.secondary)
                         Spacer()
                         DatePicker("", selection: $startDate, displayedComponents: .date)
                             .labelsHidden()
@@ -42,7 +42,7 @@ struct DayCountView: View {
                     HStack {
                         Text("エンド日")
                             .dynamicFont(size: 14, weight: .medium)
-                            .foregroundColor(DesignTokens.CommonTextColors.secondary)
+                            .foregroundColor(DesignTokens.CardTextColors.secondary)
                         Spacer()
                         DatePicker("", selection: $endDate, displayedComponents: .date)
                             .labelsHidden()
@@ -55,7 +55,7 @@ struct DayCountView: View {
                 HStack {
                     Text("平日のみ")
                         .dynamicFont(size: 16, weight: .regular)
-                        .foregroundColor(DesignTokens.CommonTextColors.primary)
+                        .foregroundColor(DesignTokens.CardTextColors.primary)
                     Spacer()
                     Toggle("", isOn: $businessDaysOnly)
                         .tint(AppTheme.accent)
@@ -70,10 +70,10 @@ struct DayCountView: View {
                             weight: DesignTokens.FeatureTypography.resultWeight,
                             design: .monospaced
                         )
-                        .foregroundColor(AppTheme.accent)
+                        .foregroundColor(AppTheme.accentOnCard)
                     Text(businessDaysOnly ? "平日" : "日間")
                         .dynamicFont(size: 16, weight: .regular)
-                        .foregroundColor(DesignTokens.CommonTextColors.tertiary)
+                        .foregroundColor(DesignTokens.CardTextColors.tertiary)
                 }
                 .frame(maxWidth: .infinity)
                 .cardStyle()

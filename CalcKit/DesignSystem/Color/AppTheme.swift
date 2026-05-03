@@ -10,6 +10,7 @@ enum AppTheme {
     )
 
     static let accent = Color(hex: "#97BEC1")
+    static let accentOnCard = Color(hex: "#97BEC1")
 
     static let operatorButton = Color(hex: "#E99689")
 }

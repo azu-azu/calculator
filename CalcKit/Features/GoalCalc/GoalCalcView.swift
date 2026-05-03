@@ -178,7 +178,7 @@ struct GoalCalcView: View {
                                 .frame(width: 44, height: 44)
                                 .background(
                                     (isPlus ? DesignTokens.StatusColors.success : DesignTokens.StatusColors.danger)
-                                        .opacity(0.15)
+                                        .opacity(0.3)
                                 )
                                 .cornerRadius(10)
                         }
@@ -188,7 +188,7 @@ struct GoalCalcView: View {
                             .keyboardType(.decimalPad)
                             .focused($isFocused)
                             .dynamicFont(size: 24, weight: .semibold)
-                            .foregroundColor(DesignTokens.CommonTextColors.primary)
+                            .foregroundColor(DesignTokens.CardTextColors.primary)
                             .padding(DesignTokens.InputLayout.fieldPadding)
                             .background(DesignTokens.InputColors.fieldBackground)
                             .cornerRadius(DesignTokens.InputLayout.fieldCornerRadius)
@@ -198,25 +198,25 @@ struct GoalCalcView: View {
                     HStack {
                         Text("人数")
                             .dynamicFont(size: 14, weight: .medium)
-                            .foregroundColor(DesignTokens.CommonTextColors.secondary)
+                            .foregroundColor(DesignTokens.CardTextColors.secondary)
                         Spacer()
                         Button {
                             if peopleCount > 1 { peopleCount -= 1 }
                         } label: {
                             Image(systemName: "minus.circle.fill")
                                 .font(.system(size: 24))
-                                .foregroundColor(DesignTokens.CommonTextColors.tertiary)
+                                .foregroundColor(DesignTokens.CardTextColors.tertiary)
                         }
                         Text("\(peopleCount)")
                             .dynamicFont(size: 20, weight: .semibold, design: .monospaced)
-                            .foregroundColor(DesignTokens.CommonTextColors.primary)
+                            .foregroundColor(DesignTokens.CardTextColors.primary)
                             .frame(width: 40)
                         Button {
                             peopleCount += 1
                         } label: {
                             Image(systemName: "plus.circle.fill")
                                 .font(.system(size: 24))
-                                .foregroundColor(AppTheme.accent)
+                                .foregroundColor(AppTheme.accentOnCard)
                         }
                     }
                 }
@@ -226,7 +226,7 @@ struct GoalCalcView: View {
                 HStack {
                     Text("平日のみ")
                         .dynamicFont(size: 16, weight: .regular)
-                        .foregroundColor(DesignTokens.CommonTextColors.primary)
+                        .foregroundColor(DesignTokens.CardTextColors.primary)
                     Spacer()
                     Toggle("", isOn: $weekdaysOnly)
                         .tint(AppTheme.accent)
@@ -238,11 +238,11 @@ struct GoalCalcView: View {
                     HStack {
                         Text("残り")
                             .dynamicFont(size: 14, weight: .regular)
-                            .foregroundColor(DesignTokens.CommonTextColors.tertiary)
+                            .foregroundColor(DesignTokens.CardTextColors.tertiary)
                         Spacer()
                         Text("\(Int(totalDays))\(weekdaysOnly ? "平日" : "日")")
                             .dynamicFont(size: 20, weight: .semibold, design: .monospaced)
-                            .foregroundColor(AppTheme.accent)
+                            .foregroundColor(AppTheme.accentOnCard)
                     }
                     .cardStyle()
                 }
@@ -253,7 +253,7 @@ struct GoalCalcView: View {
                         if peopleCount > 1 {
                             Text("1人あたり")
                                 .dynamicFont(size: 14, weight: .medium)
-                                .foregroundColor(DesignTokens.CommonTextColors.secondary)
+                                .foregroundColor(DesignTokens.CardTextColors.secondary)
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         }
                         resultRow(label: weekdaysOnly ? "1時間 (8h/日)" : "1時間", value: dailyRate / (weekdaysOnly ? 8 : 24))
@@ -312,7 +312,7 @@ struct GoalCalcView: View {
                     .keyboardType(.numberPad)
                     .focused($isFocused)
                     .dynamicFont(size: 24, weight: .bold, design: .monospaced)
-                    .foregroundColor(DesignTokens.CommonTextColors.primary)
+                    .foregroundColor(DesignTokens.CardTextColors.primary)
                     .multilineTextAlignment(.center)
                     .frame(width: 50)
                     .padding(.vertical, 8)
@@ -328,13 +328,13 @@ struct GoalCalcView: View {
 
                 Text("で")
                     .dynamicFont(size: 16, weight: .regular)
-                    .foregroundColor(DesignTokens.CommonTextColors.tertiary)
+                    .foregroundColor(DesignTokens.CardTextColors.tertiary)
             }
 
             if !periodEndDateText.isEmpty {
                 Text("→ \(periodEndDateText)まで")
                     .dynamicFont(size: 13, weight: .regular)
-                    .foregroundColor(DesignTokens.CommonTextColors.quaternary)
+                    .foregroundColor(DesignTokens.CardTextColors.quaternary)
                     .frame(maxWidth: .infinity, alignment: .trailing)
             }
         }
@@ -357,14 +357,14 @@ struct GoalCalcView: View {
                     let year = Calendar.current.component(.year, from: Date())
                     Text("\(String(year))年12月31日まで")
                         .dynamicFont(size: 16, weight: .medium)
-                        .foregroundColor(DesignTokens.CommonTextColors.primary)
+                        .foregroundColor(DesignTokens.CardTextColors.primary)
                     Spacer()
                 }
             case .monthEnd:
                 HStack {
                     Text("\(String(monthEndYear))年\(selectedMonth)月末まで")
                         .dynamicFont(size: 14, weight: .medium)
-                        .foregroundColor(DesignTokens.CommonTextColors.primary)
+                        .foregroundColor(DesignTokens.CardTextColors.primary)
                     Spacer()
                     Picker("", selection: $selectedMonth) {
                         ForEach(1...12, id: \.self) { m in
@@ -377,7 +377,7 @@ struct GoalCalcView: View {
                 HStack {
                     Text("期限日")
                         .dynamicFont(size: 14, weight: .medium)
-                        .foregroundColor(DesignTokens.CommonTextColors.secondary)
+                        .foregroundColor(DesignTokens.CardTextColors.secondary)
                     Spacer()
                     DatePicker("", selection: $customDate, in: Date()..., displayedComponents: .date)
                         .labelsHidden()
@@ -393,11 +393,11 @@ struct GoalCalcView: View {
         HStack {
             Text(label)
                 .dynamicFont(size: 16, weight: .regular)
-                .foregroundColor(DesignTokens.CommonTextColors.secondary)
+                .foregroundColor(DesignTokens.CardTextColors.secondary)
             Spacer()
             Text(formatValue(value))
                 .dynamicFont(size: 20, weight: .semibold, design: .monospaced)
-                .foregroundColor(AppTheme.accent)
+                .foregroundColor(AppTheme.accentOnCard)
         }
     }
 
