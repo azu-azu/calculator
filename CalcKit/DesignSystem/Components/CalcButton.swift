@@ -8,57 +8,42 @@ enum CalcButtonStyle {
 
     var backgroundColor: Color {
         switch self {
-        case .number: Color.white.opacity(0.25)
+        case .number: Color(hex: "#A6A6A6")
         case .function: Color.white.opacity(0.12)
-        case .operatorStyle: DesignTokens.CalcColors.operatorButton.opacity(0.55)
-        case .equals: DesignTokens.CalcColors.equalsButton.opacity(0.65)
+        case .operatorStyle: Color(hex: "#E99689")
+        case .equals: Color(hex: "#97BEC1")
         }
     }
 
     var foregroundColor: Color {
         switch self {
-        case .number, .function: DesignTokens.CommonTextColors.primary
-        case .operatorStyle: .white
-        case .equals: .white
-        }
-    }
-
-    var borderColor: Color {
-        switch self {
-        case .number: Color.white.opacity(0.30)
-        case .function: Color.white.opacity(0.22)
-        case .operatorStyle: Color.white.opacity(0.25)
-        case .equals: Color.white.opacity(0.30)
+        case .number: Color(hex: "#111111")
+        case .function: DesignTokens.CommonTextColors.primary
+        case .operatorStyle: Color(hex: "#111111")
+        case .equals: Color(hex: "#111111")
         }
     }
 
 }
 
-// MARK: - Liquid Glass Modifier
+// MARK: - Raised Button Modifier
 
-struct LiquidGlassButtonStyle: ViewModifier {
+struct RaisedButtonStyle: ViewModifier {
     let style: CalcButtonStyle
     let cornerRadius: CGFloat
 
     func body(content: Content) -> some View {
         content
             .background(
-                ZStack {
-                    // Blur tint layer
-                    RoundedRectangle(cornerRadius: cornerRadius)
-                        .fill(.ultraThinMaterial)
-
-                    // Color overlay
-                    RoundedRectangle(cornerRadius: cornerRadius)
-                        .fill(style.backgroundColor)
-                }
-            )
-            .overlay(
                 RoundedRectangle(cornerRadius: cornerRadius)
-                    .strokeBorder(style.borderColor, lineWidth: 0.5)
+                    .fill(style.backgroundColor)
             )
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
-            .shadow(color: Color.black.opacity(0.25), radius: 4, y: 2)
+            .padding(EdgeInsets(top: 2, leading: 2, bottom: 4, trailing: 2))
+            .background(
+                RoundedRectangle(cornerRadius: cornerRadius + 2)
+                    .fill(Color.black.opacity(0.6))
+            )
     }
 }
 
@@ -86,7 +71,7 @@ struct CalcButtonView: View {
                 )
                 .foregroundColor(style.foregroundColor)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .modifier(LiquidGlassButtonStyle(
+                .modifier(RaisedButtonStyle(
                     style: style,
                     cornerRadius: DesignTokens.CalcLayout.buttonCornerRadius
                 ))
