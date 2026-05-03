@@ -101,7 +101,7 @@ struct CalcKeypad: View {
                 .font(.system(size: DesignTokens.CalcTypography.buttonSize - 4, weight: .medium))
                 .foregroundColor(style.foregroundColor)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .modifier(LiquidGlassButtonStyle(
+                .modifier(RaisedButtonStyle(
                     style: style,
                     cornerRadius: DesignTokens.CalcLayout.buttonCornerRadius
                 ))
@@ -119,7 +119,7 @@ struct CalcKeypad: View {
                 .foregroundColor(style.foregroundColor)
                 .frame(maxHeight: .infinity)
                 .frame(width: width)
-                .modifier(LiquidGlassButtonStyle(
+                .modifier(RaisedButtonStyle(
                     style: style,
                     cornerRadius: DesignTokens.CalcLayout.buttonCornerRadius
                 ))
