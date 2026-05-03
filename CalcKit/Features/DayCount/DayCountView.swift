@@ -70,7 +70,7 @@ struct DayCountView: View {
                             weight: DesignTokens.FeatureTypography.resultWeight,
                             design: .monospaced
                         )
-                        .foregroundColor(AppTheme.accentOnCard)
+                        .foregroundColor(DesignTokens.CardTextColors.primary)
                     Text(businessDaysOnly ? "平日" : "日間")
                         .dynamicFont(size: 16, weight: .regular)
                         .foregroundColor(DesignTokens.CardTextColors.tertiary)

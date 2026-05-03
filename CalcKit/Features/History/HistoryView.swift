@@ -62,7 +62,7 @@ struct HistoryView: View {
 
             Text("= \(item.result)")
                 .dynamicFont(size: 20, weight: .semibold, design: .monospaced)
-                .foregroundColor(AppTheme.accentOnCard)
+                .foregroundColor(DesignTokens.CardTextColors.primary)
         }
         .cardStyle()
         .contextMenu {

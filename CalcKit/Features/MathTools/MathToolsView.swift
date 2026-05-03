@@ -60,7 +60,7 @@ struct MathToolsView: View {
                                     weight: DesignTokens.FeatureTypography.resultWeight,
                                     design: .monospaced
                                 )
-                                .foregroundColor(AppTheme.accentOnCard)
+                                .foregroundColor(DesignTokens.CardTextColors.primary)
                         }
                     }
                 }

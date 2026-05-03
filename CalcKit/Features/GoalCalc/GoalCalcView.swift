@@ -242,7 +242,7 @@ struct GoalCalcView: View {
                         Spacer()
                         Text("\(Int(totalDays))\(weekdaysOnly ? "平日" : "日")")
                             .dynamicFont(size: 20, weight: .semibold, design: .monospaced)
-                            .foregroundColor(AppTheme.accentOnCard)
+                            .foregroundColor(DesignTokens.CardTextColors.primary)
                     }
                     .cardStyle()
                 }
@@ -397,7 +397,7 @@ struct GoalCalcView: View {
             Spacer()
             Text(formatValue(value))
                 .dynamicFont(size: 20, weight: .semibold, design: .monospaced)
-                .foregroundColor(AppTheme.accentOnCard)
+                .foregroundColor(DesignTokens.CardTextColors.primary)
         }
     }
 

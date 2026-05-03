@@ -264,7 +264,7 @@ struct WarikanView: View {
                 Spacer()
                 Text("¥\(displayPerPerson.formatted()) × \(result.remainingPeople)人")
                     .dynamicFont(size: 20, weight: .bold, design: .monospaced)
-                    .foregroundColor(AppTheme.accentOnCard)
+                    .foregroundColor(DesignTokens.CardTextColors.primary)
             }
 
             Divider()
