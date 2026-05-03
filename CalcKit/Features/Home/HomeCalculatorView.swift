@@ -28,23 +28,30 @@ struct HomeCalculatorView: View {
 
     private var portraitLayout: some View {
         VStack(spacing: 0) {
-            Spacer()
+            VStack(spacing: 0) {
+                VStack {
+                    Spacer()
+                    CalcDisplay(
+                        expression: engine.expression,
+                        intermediateSteps: engine.intermediateSteps,
+                        displayValue: engine.displayValue
+                    )
+                }
+                .background(Color(hex: "#1C2640"))
 
-            CalcDisplay(
-                expression: engine.expression,
-                intermediateSteps: engine.intermediateSteps,
-                displayValue: engine.displayValue
+                keypad
+                    .frame(height: DesignTokens.CalcLayout.buttonHeight * 6
+                        + DesignTokens.CalcLayout.buttonSpacing * 5)
+                    .padding(.vertical, 12)
+                    .background(Color(hex: "#424242"))
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .overlay(
+                RoundedRectangle(cornerRadius: 20)
+                    .strokeBorder(Color.white.opacity(0.18), lineWidth: 1)
             )
-
-            keypad
-                .frame(height: DesignTokens.CalcLayout.buttonHeight * 6
-                    + DesignTokens.CalcLayout.buttonSpacing * 5)
-                .padding(.vertical, 12)
-                .background(
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(Color(hex: "#424242"))
-                )
-                .padding(.horizontal, 4)
+            .padding(.top, 60)
+            .padding(.horizontal, 4)
 
             calcToolbar
                 .padding(.horizontal, 16)
