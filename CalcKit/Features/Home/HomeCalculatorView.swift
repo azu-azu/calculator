@@ -105,7 +105,7 @@ struct HomeCalculatorView: View {
             Button(action: { showSaveDialog = true }) {
                 HStack(spacing: 6) {
                     Image(systemName: "square.and.arrow.down")
-                        .font(.system(size: 14))
+                        .font(.system(size: 14, design: .rounded))
                     Text("Save")
                         .dynamicFont(size: 14, weight: .medium)
                 }

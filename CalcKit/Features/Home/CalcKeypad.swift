@@ -78,7 +78,7 @@ struct CalcKeypad: View {
             action()
         } label: {
             Image(systemName: systemName)
-                .font(.system(size: DesignTokens.CalcTypography.buttonSize - 4, weight: .medium))
+                .font(.system(size: DesignTokens.CalcTypography.buttonSize - 4, weight: .medium, design: .rounded))
                 .foregroundColor(style.foregroundColor)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .modifier(RaisedButtonStyle(

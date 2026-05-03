@@ -86,7 +86,7 @@ struct WarikanView: View {
                                 if peopleCount > 1 { peopleCount -= 1 }
                             } label: {
                                 Image(systemName: "minus.circle.fill")
-                                    .font(.system(size: 28))
+                                    .font(.system(size: 28, design: .rounded))
                                     .foregroundColor(DesignTokens.CommonTextColors.tertiary)
                             }
 
@@ -99,7 +99,7 @@ struct WarikanView: View {
                                 peopleCount += 1
                             } label: {
                                 Image(systemName: "plus.circle.fill")
-                                    .font(.system(size: 28))
+                                    .font(.system(size: 28, design: .rounded))
                                     .foregroundColor(AppTheme.accent)
                             }
 
@@ -162,7 +162,7 @@ struct WarikanView: View {
                         focusedField = nil
                     } label: {
                         Image(systemName: "keyboard.chevron.compact.down")
-                            .font(.system(size: 18))
+                            .font(.system(size: 18, design: .rounded))
                             .foregroundColor(AppTheme.accent)
                             .padding(10)
                     }

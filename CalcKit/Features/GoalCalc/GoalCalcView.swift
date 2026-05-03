@@ -201,7 +201,7 @@ struct GoalCalcView: View {
                             if peopleCount > 1 { peopleCount -= 1 }
                         } label: {
                             Image(systemName: "minus.circle.fill")
-                                .font(.system(size: 24))
+                                .font(.system(size: 24, design: .rounded))
                                 .foregroundColor(DesignTokens.CommonTextColors.tertiary)
                         }
                         Text("\(peopleCount)")
@@ -215,7 +215,7 @@ struct GoalCalcView: View {
                             peopleCount += 1
                         } label: {
                             Image(systemName: "plus.circle.fill")
-                                .font(.system(size: 24))
+                                .font(.system(size: 24, design: .rounded))
                                 .foregroundColor(AppTheme.accent)
                         }
                     }

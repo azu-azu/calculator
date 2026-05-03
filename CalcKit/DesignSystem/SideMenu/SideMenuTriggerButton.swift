@@ -10,7 +10,7 @@ struct SideMenuTriggerButton: View {
             action()
         } label: {
             Image(systemName: "line.3.horizontal")
-                .font(.system(size: 14, weight: .semibold))
+                .font(.system(size: 14, weight: .semibold, design: .rounded))
                 .foregroundColor(DesignTokens.CommonTextColors.secondary)
                 .frame(width: 44, height: 44)
                 .background(DesignTokens.CommonBackgroundColors.cardHighlight)
