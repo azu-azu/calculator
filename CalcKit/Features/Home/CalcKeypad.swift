@@ -11,8 +11,6 @@ struct CalcKeypad: View {
     let onOpenParen: () -> Void
     let onCloseParen: () -> Void
     let onToggleSign: () -> Void
-    let onSave: () -> Void
-    let onMenu: () -> Void
 
     private let spacing = DesignTokens.CalcLayout.buttonSpacing
 
@@ -68,28 +66,6 @@ struct CalcKeypad: View {
                     wideButton("=", width: buttonWidth * 2 + spacing, style: .equals) { onEquals() }
                 }
 
-                // Toolbar: ☰ (左) ... Save (右)
-                HStack {
-                    SideMenuTriggerButton { onMenu() }
-
-                    Spacer()
-
-                    Button(action: onSave) {
-                        HStack(spacing: 6) {
-                            Image(systemName: "square.and.arrow.down")
-                                .font(.system(size: 14))
-                            Text("Save")
-                                .dynamicFont(size: 14, weight: .medium)
-                        }
-                        .foregroundColor(AppTheme.accent)
-                        .padding(.horizontal, 16)
-                        .frame(height: DesignTokens.CalcLayout.toolbarHeight)
-                        .background(AppTheme.accent.opacity(0.12))
-                        .cornerRadius(10)
-                    }
-                    .buttonStyle(.plain)
-                }
-                .fixedSize(horizontal: false, vertical: true)
             }
             .padding(.horizontal, 12)
         }

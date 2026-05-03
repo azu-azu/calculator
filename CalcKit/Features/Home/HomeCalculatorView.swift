@@ -38,8 +38,16 @@ struct HomeCalculatorView: View {
 
             keypad
                 .frame(height: DesignTokens.CalcLayout.buttonHeight * 6
-                    + DesignTokens.CalcLayout.toolbarHeight
-                    + DesignTokens.CalcLayout.buttonSpacing * 6)
+                    + DesignTokens.CalcLayout.buttonSpacing * 5)
+                .padding(.vertical, 12)
+                .background(
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(Color.white.opacity(0.09))
+                )
+                .padding(.horizontal, 4)
+
+            calcToolbar
+                .padding(.horizontal, 16)
                 .padding(.bottom, 8)
         }
     }
@@ -76,9 +84,30 @@ struct HomeCalculatorView: View {
             onPercent: { engine.inputPercent() },
             onOpenParen: { engine.inputOpenParen() },
             onCloseParen: { engine.inputCloseParen() },
-            onToggleSign: { engine.toggleSign() },
-            onSave: { showSaveDialog = true },
-            onMenu: onMenu
+            onToggleSign: { engine.toggleSign() }
         )
+    }
+
+    private var calcToolbar: some View {
+        HStack {
+            SideMenuTriggerButton { onMenu() }
+
+            Spacer()
+
+            Button(action: { showSaveDialog = true }) {
+                HStack(spacing: 6) {
+                    Image(systemName: "square.and.arrow.down")
+                        .font(.system(size: 14))
+                    Text("Save")
+                        .dynamicFont(size: 14, weight: .medium)
+                }
+                .foregroundColor(AppTheme.accent)
+                .padding(.horizontal, 16)
+                .frame(height: DesignTokens.CalcLayout.toolbarHeight)
+                .background(AppTheme.accent.opacity(0.12))
+                .cornerRadius(10)
+            }
+            .buttonStyle(.plain)
+        }
     }
 }
