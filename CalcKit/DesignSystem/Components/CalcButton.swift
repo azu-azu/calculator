@@ -35,8 +35,12 @@ struct RaisedButtonStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
             .background(
-                RoundedRectangle(cornerRadius: cornerRadius)
-                    .fill(style.backgroundColor)
+                ZStack {
+                    RoundedRectangle(cornerRadius: cornerRadius)
+                        .fill(AppTheme.background)
+                    RoundedRectangle(cornerRadius: cornerRadius)
+                        .fill(style.backgroundColor)
+                }
             )
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
             .padding(EdgeInsets(top: 2, leading: 2, bottom: 4, trailing: 2))
