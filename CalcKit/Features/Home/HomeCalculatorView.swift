@@ -42,12 +42,13 @@ struct HomeCalculatorView: View {
                 .padding(.vertical, 12)
                 .background(
                     RoundedRectangle(cornerRadius: 20)
-                        .fill(Color.white.opacity(0.09))
+                        .fill(Color(hex: "#424242"))
                 )
                 .padding(.horizontal, 4)
 
             calcToolbar
                 .padding(.horizontal, 16)
+                .padding(.top, 10)
                 .padding(.bottom, 8)
         }
     }
