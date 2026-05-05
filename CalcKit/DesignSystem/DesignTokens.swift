@@ -59,12 +59,10 @@ struct DesignTokens {
 
     enum InputLayout {
         static let fieldCornerRadius: CGFloat = 12
-        static let fieldHeight: CGFloat = 50
         static let fieldPadding: CGFloat = 16
         static let sectionSpacing: CGFloat = 24
         static let itemSpacing: CGFloat = 16
         static let screenHorizontal: CGFloat = 24
-        static let cardCornerRadius: CGFloat = 12
         static let cardPadding: CGFloat = 16
     }
 
@@ -87,7 +85,6 @@ struct DesignTokens {
         static let menuHideOffset: CGFloat = 20
         static let minLeadingOffset: CGFloat = 16
         static let cornerRadius: CGFloat = 10
-        static let headerTopPadding: CGFloat = 40
         static let itemVerticalPadding: CGFloat = 14
         static let itemSpacing: CGFloat = 20
     }
@@ -110,10 +107,6 @@ struct DesignTokens {
     enum FeatureTypography {
         static let sectionTitleSize: CGFloat = 18
         static let sectionTitleWeight: Font.Weight = .semibold
-        static let bodySize: CGFloat = 17
-        static let bodyWeight: Font.Weight = .regular
-        static let captionSize: CGFloat = 14
-        static let captionWeight: Font.Weight = .regular
         static let resultSize: CGFloat = 32
         static let resultWeight: Font.Weight = .semibold
     }
